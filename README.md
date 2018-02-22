@@ -19,10 +19,12 @@ All informations, tips and tricks was gathered from:
 
  - ✔ Wifi (Atheros models too)
  - ✔ Audio
+ - ✔ Nvidia/Intel graphic card switch
  - ✔ Touchpad gestures
  - ✔ Keyboard backlight
  - ✔ Display brightness
  - ✔ No random freeze or kernel panics
+ - ✔ HDMI
 
 ### What Doesn't Work at the Moment
 
