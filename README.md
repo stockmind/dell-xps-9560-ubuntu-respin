@@ -15,6 +15,8 @@ All informations, tips and tricks was gathered from:
 - [Atheros wifi card fix](https://ubuntuforums.org/showthread.php?t=2323812&page=2)
 - [Respin script and info](http://linuxiumcomau.blogspot.com/)
 
+Kudos and all the credits for things not related to my work go to developers and users on those pages!
+
 ### What Works Out-of-the-Box
 
  - ✔ Wifi (Atheros models too)
