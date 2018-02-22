@@ -9,7 +9,9 @@ This might work on other Dell XPS too.
 
 All informations, tips and tricks was gathered from:
 [tomwwright gist for DELL XPS 15 9560](https://gist.github.com/tomwwright/f88e2ddb344cf99f299935e1312da880)
+
 [Atheros wifi card fix](https://ubuntuforums.org/showthread.php?t=2323812&page=2)
+
 [Respin script and info](http://linuxiumcomau.blogspot.com/)
 
 ### What Works Out-of-the-Box
