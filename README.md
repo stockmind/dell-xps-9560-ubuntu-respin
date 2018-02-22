@@ -2,6 +2,8 @@
 
 ![DELL XPS 9560](https://github.com/stockmind/dell-xps-9560-ubuntu-respin/raw/master/screenshot.png)
 
+# DELL XPS 15 9560 Ubuntu Respin
+
 # Overview
 
 Collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images to let them run smooth on Dell XPS 15 9560.
