@@ -143,6 +143,8 @@ Nvidia:
 sudo prime-select nvidia
 ```
 
+**Note: A logout and login could be required when switching graphic cards.**
+
 # Build with Docker
 
 ![Docker](https://github.com/stockmind/dell-xps-9560-ubuntu-respin/raw/master/Docker.png)
