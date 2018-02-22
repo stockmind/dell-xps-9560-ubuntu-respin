@@ -170,11 +170,11 @@ Once the image is ready you can choose from the following steps:
 To respin an ISO you need to place desired ISO in ```origin/``` folder of this repository then run:
   
 ```
-./docker-respin.sh <iso-file-name-without-path>
+./docker-respin.sh <iso-file-name>
 ```
 
 ```
-./docker-respin.sh <iso-file-name-without-path> -k <kernelversion>
+./docker-respin.sh <iso-file-name> -k <kernelversion>
 ```
 
 Example:
