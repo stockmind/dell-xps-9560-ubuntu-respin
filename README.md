@@ -19,12 +19,14 @@ All informations, tips and tricks was gathered from:
 
  - ✔ Wifi (Atheros models too)
  - ✔ Audio
- - ✔ Nvidia/Intel graphic card switch
+ - ✔ Audio on HDMI
+ - ✔ HDMI ( even on lid closed )
+ - ✔ Nvidia/Intel graphic cards switch
  - ✔ Touchpad gestures
  - ✔ Keyboard backlight
  - ✔ Display brightness
+ - ✔ Sleep/wake
  - ✔ No random freeze or kernel panics
- - ✔ HDMI
 
 ### What Doesn't Work at the Moment
 
