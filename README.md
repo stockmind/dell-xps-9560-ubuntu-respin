@@ -29,6 +29,12 @@ All informations, tips and tricks was gathered from:
 ### What Doesn't Work at the Moment
 
  - Not known for the moment
+ 
+### Download an Already Respun ISO
+
+Download ISO from [Release page](https://github.com/stockmind/dell-xps-9560-ubuntu-respin/releases/tag/v1.0)
+
+And follow guide from [Step 4: Install and Update](#step-4-install-and-update)
 
 ### Overview for Building and Respinning an ISO
 
