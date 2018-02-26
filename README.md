@@ -82,7 +82,7 @@ Download your favourite distribution ISO and copy it in this repository cloned f
 
 ## Step 3: Build Your Respun ISO
 
-Run `./build.sh` script as specified for your desired distro. If you built your own kernel, the build script wiill extract the kernels you zipped and install during respin.
+Run `./build.sh` script as specified for your desired distro.
 
 ### Build on Debian-based systems:
 
