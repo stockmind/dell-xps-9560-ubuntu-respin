@@ -38,8 +38,8 @@ if [ "$1" = 'respin' ]; then
 		else
 			echo "Kernel arguments found!"
 			echo "$@"
-			echo "./build.sh /docker-input/$2 $3 $4"
-			./build.sh "/docker-input/$2" $3 $4
+			echo "./build.sh /docker-input/${@:2}"
+			./build.sh "/docker-input/${@:2}"
 		fi
 
 		FILE=$2

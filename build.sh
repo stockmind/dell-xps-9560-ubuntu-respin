@@ -6,10 +6,34 @@ KERNELVERSION=$3
 
 KERNELARGS=" -u "
 
-if [[ $KERNEL == "-k" ]] ; then
+# Parse ARGS
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -k|--kernel)
     echo "Setting kernel version..."
+    KERNELVERSION="$2"
     KERNELARGS=" --kernel $KERNELVERSION "
-fi
+    shift # past argument
+    shift # past value
+    ;;
+    -c|--compatibility)
+    echo "Setting compatibility..."
+    COMPATIBILITY="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+# End args parsing
 
 # If missing, download latest version of the script that will respin the ISO
 if [ ! -f isorespin.sh ]; then
@@ -30,7 +54,15 @@ installpackages+="nvidia-prime "
 # Streaming and codecs for correct video encoding/play
 installpackages+="va-driver-all "
 installpackages+="vainfo "
-installpackages+="libva1 "
+if [ -n "$COMPATIBILITY" ]; then
+	if [ "$COMPATIBILITY" == "bionicbeaver" ]; then
+		installpackages+="libva2 "
+	else
+		installpackages+="libva1 "
+	fi
+else
+	installpackages+="libva1 "
+fi
 installpackages+="gstreamer1.0-libav "
 installpackages+="gstreamer1.0-vaapi "
 # Useful music/video player with large set of codecs
