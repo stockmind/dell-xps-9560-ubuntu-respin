@@ -48,20 +48,29 @@ installpackages+="thermald "
 installpackages+="tlp "
 installpackages+="tlp-rdw  "
 installpackages+="powertop "
-# Nvidia
-installpackages+="nvidia-390 "
-installpackages+="nvidia-prime "
 # Streaming and codecs for correct video encoding/play
 installpackages+="va-driver-all "
 installpackages+="vainfo "
 if [ -n "$COMPATIBILITY" ]; then
 	if [ "$COMPATIBILITY" == "bionicbeaver" ]; then
 		installpackages+="libva2 "
+		installpackages+="bbswitch-dkms "
+		installpackages+="pciutils "
+		installpackages+="lsb-release "
+		# Nvidia
+		installpackages+="nvidia-396 "
+		installpackages+="nvidia-prime "
 	else
 		installpackages+="libva1 "
+		# Nvidia
+		installpackages+="nvidia-390 "
+		installpackages+="nvidia-prime "
 	fi
 else
 	installpackages+="libva1 "
+	# Nvidia
+	installpackages+="nvidia-390 "
+	installpackages+="nvidia-prime "
 fi
 installpackages+="gstreamer1.0-libav "
 installpackages+="gstreamer1.0-vaapi "
