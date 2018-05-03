@@ -58,7 +58,7 @@ if [ -n "$COMPATIBILITY" ]; then
 		installpackages+="pciutils "
 		installpackages+="lsb-release "
 		# Nvidia
-		installpackages+="nvidia-396 "
+		installpackages+="nvidia-graphics-drivers-396 "
 		installpackages+="nvidia-prime "
 	else
 		installpackages+="libva1 "
