@@ -61,7 +61,7 @@ To respin an existing Ubuntu ISO, you will need to use a Linux machine with some
 The first step is to clone this repo: 
 ```
 git clone https://github.com/stockmind/dell-xps-9560-ubuntu-respin.git
-cd gpd-pocket-ubuntu-respin/
+cd dell-xps-9560-ubuntu-respin/
 ```
 ### Debian-based systems:
 
