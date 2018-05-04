@@ -37,6 +37,7 @@ Kudos and all the credits for things not related to my work go to developers and
 ### Download an Already Respun ISO
 
 Download ISO from [Release page](https://github.com/stockmind/dell-xps-9560-ubuntu-respin/releases/tag/v1.0)
+Mirror: https://downloads.cre.ovh/ (Experimental ISOs will be uploaded here)
 
 And follow guide from [Step 4: Install and Update](#step-4-install-and-update)
 
