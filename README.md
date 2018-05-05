@@ -41,6 +41,9 @@ There are two major issues on 18.04:
  - Prime-select intel is not powering off the nvidia card, so even if you use the intel card your battery will drain a lot faster (20w instead of 10w).
  - After prime-select intel, system seems to freeze on shutdown, requiring you to force it by pressing the power button for a while. 
  
+**Ubuntu 17.10 is stable and is not affected by those issues.** 
+If you need a reliable system stick to Ubuntu 17.10 until those issues gets fixed. 
+ 
 ### Download an Already Respun ISO
 
 - Download ISO from [Release page](https://github.com/stockmind/dell-xps-9560-ubuntu-respin/releases/tag/v1.0)
