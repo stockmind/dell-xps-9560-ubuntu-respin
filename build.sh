@@ -5,6 +5,7 @@ KERNEL=$2
 KERNELVERSION=$3
 
 KERNELARGS=" -u "
+GRUBOPTIONS="quiet splash acpi_rev_override=1"
 
 # Parse ARGS
 POSITIONAL=()
@@ -60,6 +61,8 @@ if [ -n "$COMPATIBILITY" ]; then
 		# Nvidia
 		installpackages+="nvidia-390 "
 		installpackages+="nvidia-prime "
+
+		GRUBOPTIONS="quiet splash acpi_rev_override=1 nouveau.modeset=0"
 	else
 		installpackages+="libva1 "
 		# Nvidia
@@ -91,4 +94,4 @@ chmod +x isorespin.sh
 	-c wrapper-network.sh \
 	-c wrapper-nvidia.sh \
 	-g "" \
-	-g "quiet splash acpi_rev_override=1"
+	-g "$GRUBOPTIONS"
