@@ -38,7 +38,7 @@ Kudos and all the credits for things not related to my work go to developers and
 
 There is still a major issue on 18.04:
 
- - Prime-select intel is not powering off the nvidia card, so even if you use the intel card your battery will drain a lot faster (20w instead of 10w). The service suggested in issue #8 may help. 
+ - Prime-select intel is not powering off the nvidia card, so even if you use the intel card your battery will drain a lot faster (20w instead of 10w). The service suggested in [issue #8](https://github.com/stockmind/dell-xps-9560-ubuntu-respin/issues/8#issuecomment-389292575) may help. 
  
 **Ubuntu 17.10 is stable and is not affected by those issues.** 
 If you need a reliable system stick to Ubuntu 17.10 until those issues gets fixed. 
