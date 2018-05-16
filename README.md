@@ -36,10 +36,9 @@ Kudos and all the credits for things not related to my work go to developers and
  
 ## Ubuntu 18.04 issues
 
-There are two major issues on 18.04:
+There is still a major issue on 18.04:
 
- - Prime-select intel is not powering off the nvidia card, so even if you use the intel card your battery will drain a lot faster (20w instead of 10w).
- - After prime-select intel, system seems to freeze on shutdown, requiring you to force it by pressing the power button for a while. 
+ - Prime-select intel is not powering off the nvidia card, so even if you use the intel card your battery will drain a lot faster (20w instead of 10w). The service suggested in issue #8 may help. 
  
 **Ubuntu 17.10 is stable and is not affected by those issues.** 
 If you need a reliable system stick to Ubuntu 17.10 until those issues gets fixed. 
