@@ -85,6 +85,8 @@ installpackages+="vlc "
 
 chmod +x isorespin.sh
 
+sync;
+
 ./isorespin.sh -i $ISOFILE \
 	$KERNELARGS \
 	-r "ppa:graphics-drivers/ppa" \
