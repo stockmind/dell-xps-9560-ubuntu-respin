@@ -59,7 +59,7 @@ if [ -n "$COMPATIBILITY" ]; then
 		installpackages+="pciutils "
 		installpackages+="lsb-release "
 		# Nvidia
-		installpackages+="nvidia-396 "
+		installpackages+="nvidia-driver-396 "
 		installpackages+="nvidia-prime "
 
 		GRUBOPTIONS="quiet splash acpi_rev_override=1 nouveau.modeset=0"
@@ -93,5 +93,4 @@ chmod +x isorespin.sh
 	-f wrapper-nvidia.sh \
 	-c wrapper-network.sh \
 	-c wrapper-nvidia.sh \
-	-g "" \
 	-g "$GRUBOPTIONS"
