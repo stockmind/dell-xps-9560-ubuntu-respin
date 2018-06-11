@@ -1,0 +1,9 @@
+[Unit]
+Description=Power-off gpu
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "if [[ `prime-select query` == 'intel' ]]; then echo auto > /sys/bus/pci/devices/0000\:01\:00.0/power/control; fi"
+
+[Install]
+WantedBy=default.target

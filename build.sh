@@ -93,6 +93,7 @@ sync;
 	-p "$installpackages" \
 	-f wrapper-network.sh \
 	-f wrapper-nvidia.sh \
+	-f services/gpuoff.service \
 	-c wrapper-network.sh \
 	-c wrapper-nvidia.sh \
 	-g "$GRUBOPTIONS"
