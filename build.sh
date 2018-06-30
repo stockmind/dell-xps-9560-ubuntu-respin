@@ -53,7 +53,7 @@ installpackages+="nvidia-prime "
 installpackages+="bbswitch-dkms "
 installpackages+="pciutils "
 
-GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux nouveau.modeset=0 scsi_mod.use_blk_mq=1 nouveau.runpm=0"
+GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux scsi_mod.use_blk_mq=1 nouveau.modeset=0 nouveau.runpm=0"
 installpackages+="gstreamer1.0-libav "
 installpackages+="gstreamer1.0-vaapi "
 # Useful music/video player with large set of codecs
@@ -72,7 +72,10 @@ $KERNELARGS \
 -p "$installpackages" \
 -f wrapper-network.sh \
 -f wrapper-nvidia.sh \
+-f wrapper-powertop.sh \
 -f services/gpuoff.service \
+-f services/powertop.service \
 -c wrapper-network.sh \
 -c wrapper-nvidia.sh \
+-c wrapper-powertop.sh \
 -g "$GRUBOPTIONS"

@@ -12,6 +12,7 @@ All informations, tips and tricks was gathered from:
 - [tomwwright gist for DELL XPS 15 9560](https://gist.github.com/tomwwright/f88e2ddb344cf99f299935e1312da880)
 - [Atheros wifi card fix](https://ubuntuforums.org/showthread.php?t=2323812&page=2)
 - [Respin script and info](http://linuxiumcomau.blogspot.com/)
+- Myself xD
 
 Kudos and all the credits for things not related to my work go to developers and users on those pages!
 
@@ -35,9 +36,9 @@ Kudos and all the credits for things not related to my work go to developers and
 ### Overview for Building and Respinning an ISO
 
 1. [Clone the repo and install necessary tools](#step-1-cloning-the-repo-and-installing-tools)
-1. [Download your ISO of choice](#step-2-download-your-iso-of-choice)
+1. [Download your ISO of choice](#step-2-download-your-ubuntu-18.04-iso)
 1. [Respin the ISO (it many take a about 30 minutes or even longer)](#step-3-build-your-respun-iso)
-1. [Install OS and run post-install commands](#step-4-install-and-run-post-install)
+1. [Install OS and run post-install commands](#step-4-install-and-update)
 
 ## Step 1: Cloning the Repo and Installing Tools
 
