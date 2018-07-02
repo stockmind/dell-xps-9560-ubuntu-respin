@@ -36,7 +36,7 @@ Kudos and all the credits for things not related to my work go to developers and
 ### Overview for Building and Respinning an ISO
 
 1. [Clone the repo and install necessary tools](#step-1-cloning-the-repo-and-installing-tools)
-1. [Download your Ubuntu 18.04 ISO](#step-2-download-your-ubuntu-18.04-iso)
+1. [Download your Ubuntu 18.04 ISO](#step-2-download-your-ubuntu-1804-iso)
 1. [Respin the ISO (it many take a about 30 minutes or even longer)](#step-3-build-your-respun-iso)
 1. [Install OS and run post-install commands](#step-4-install-and-update)
 
