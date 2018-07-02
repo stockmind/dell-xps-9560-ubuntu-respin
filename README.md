@@ -4,8 +4,7 @@
 
 # Overview
 
-Collection of scripts and tweaks to adapt Ubuntu 18.04 image to let them run smooth on Dell XPS 15 9570.
-This might work on other Dell XPS too.
+Collection of scripts and tweaks to make Ubuntu 18.04 run smooth on Dell XPS 15 9570.
 
 All informations, tips and tricks was gathered from:
 
@@ -18,16 +17,14 @@ Kudos and all the credits for things not related to my work go to developers and
 
 ### What Works Out-of-the-Box
 
- - ✅ Wifi (Atheros models too)
+ - ✅ Atheros Wifi
  - ✅ Audio
  - ✅ Audio on HDMI
  - ✅ HDMI ( even on lid closed )
  - ✅ Nvidia/Intel graphic cards switch
- - ✅ Touchpad gestures
  - ✅ Keyboard backlight
  - ✅ Display brightness
  - ✅ Sleep/wake
- - ✅ No random freeze or kernel panics
 
 ### What Doesn't Work at the Moment
 
@@ -115,13 +112,10 @@ Disable Secure boot in bios to boot from the ISO.
 
 ### Post-install
 
-These commands should be run after the first boot.
-```
-sudo tlp start
-sudo powertop --auto-tune
-```
+If you want touchpad gestures, check https://github.com/bulletmark/libinput-gestures.
 
 #### Switch from one graphic card to the other
+
 Intel:
 ```
 sudo prime-select intel
