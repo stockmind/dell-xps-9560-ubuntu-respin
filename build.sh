@@ -69,6 +69,7 @@ sync;
 ./isorespin.sh -i $ISOFILE \
 $KERNELARGS \
 -r "ppa:graphics-drivers/ppa" \
+-r "ppa:linrunner/tlp" \
 -p "$installpackages" \
 -f wrapper-network.sh \
 -f wrapper-nvidia.sh \
