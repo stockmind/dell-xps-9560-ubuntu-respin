@@ -110,31 +110,9 @@ It's fast, reliable and multi-platform.
 Boot system using one time boot menu.
 Disable Secure boot in bios to boot from the ISO.
 
-### Post-install and troubleshooting
+### Post-install
 
 If you want touchpad gestures, check https://github.com/bulletmark/libinput-gestures.
-
-If you hear some annoying hissing sounds when using headphones (it's due to power saving), run the following command:
-```shell
-amixer set 'Headphone Mic' 1db
-```
-If it doesn't work, you could try disabling audio power saving simply by editing (as root) `/etc/default/tlp` and changing this line:
-```shell
-SOUND_POWER_SAVE_ON_BAT=1
-```
-to
-```shell
-SOUND_POWER_SAVE_ON_BAT=0
-```
-
-If you notice some graphic stuttering and it really bothers you, try first disabling panel self refresh. To do that edit as root 
-`/etc/modprobe.d/i915.conf`, and delete `enable_psr=2`. The line should be something like:
-```shell
-options i915 enable_fbc=1 enable_guc=-1 disable_power_well=0 fastboot=1
-```
-After editing the file, update the kernel boot image by using `sudo update-initramfs -u`.
-If the stuttering is still present, disable also the framebuffer compression option, by deleting `enable_fbc=1`.
-If neither this fixes the stuttering, simply delete the file (`sudo rm /etc/modprobe.d/i915.conf && sudo update-initramfs -u`).
 
 #### Switch from one graphic card to the other
 
