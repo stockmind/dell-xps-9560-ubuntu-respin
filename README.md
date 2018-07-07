@@ -33,9 +33,9 @@ Kudos and all the credits for things not related to my work go to developers and
 ### Overview for Building and Respinning an ISO
 
 1. [Clone the repo and install necessary tools](#step-1-cloning-the-repo-and-installing-tools)
-1. [Download your Ubuntu 18.04 ISO](#step-2-download-your-ubuntu-1804-iso)
-1. [Respin the ISO (it many take a about 30 minutes or even longer)](#step-3-build-your-respun-iso)
-1. [Install OS and run post-install commands](#step-4-install-and-update)
+2. [Download your Ubuntu 18.04 ISO](#step-2-download-your-ubuntu-1804-iso)
+3. [Respin the ISO (it many take a about 30 minutes or even longer)](#step-3-build-your-respun-iso)
+4. [Install OS and run post-install commands](#step-4-install-and-update)
 
 ## Step 1: Cloning the Repo and Installing Tools
 
@@ -110,9 +110,13 @@ It's fast, reliable and multi-platform.
 Boot system using one time boot menu.
 Disable Secure boot in bios to boot from the ISO.
 
-### Post-install
+### Post-install notes
 
 If you want touchpad gestures, check https://github.com/bulletmark/libinput-gestures.
+
+### Troubleshooting
+
+Check the wiki page about it: https://github.com/JackHack96/dell-xps-9570-ubuntu-respin/wiki/Troubleshooting
 
 #### Switch from one graphic card to the other
 
