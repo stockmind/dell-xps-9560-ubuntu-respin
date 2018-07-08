@@ -116,7 +116,7 @@ If you want touchpad gestures, check https://github.com/bulletmark/libinput-gest
 
 ### Troubleshooting
 
-Check the wiki page about it: https://github.com/JackHack96/dell-xps-9570-ubuntu-respin/wiki/Troubleshooting
+Check the [wiki page](https://github.com/JackHack96/dell-xps-9570-ubuntu-respin/wiki/Troubleshooting) about it.
 
 #### Switch from one graphic card to the other
 
