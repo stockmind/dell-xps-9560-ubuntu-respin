@@ -2,6 +2,7 @@
 
 cd /usr/local/bin
 
-cp powertop.service /lib/systemd/system/powertop.service
+sudo mv powertop.service /lib/systemd/system/powertop.service
 sudo systemctl enable powertop
-rm -f wrapper-powertop.sh
+
+sudo rm -f /usr/local/bin/wrapper-powertop.sh
