@@ -74,16 +74,6 @@ Run `./build.sh` script as specified for your desired distro.
 ./build.sh <iso filename>
 ```
 
-Or:
-
-```
-./build.sh <iso filename> -k <kernelversion>
-```
-
-If you don't set a -k flag, the latest mainline kernel will be installed during respin.
-
-Value for -k flag can be any of the Ubuntu Kernel Team kernel builds located at http://kernel.ubuntu.com/~kernel-ppa/mainline and is passed as the directory or folder name without the trailing
-
 ### Build on Arch-based systems:
 
 * Build ISO running this:
@@ -91,15 +81,6 @@ Value for -k flag can be any of the Ubuntu Kernel Team kernel builds located at 
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename>
 ```  
 
-Or:
-
-```
-PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename> -k <kernelversion>
-```
-
-If you don't set a -k flag, the latest mainline kernel will be installed during respin.
-
-Value for -k flag can be any of the Ubuntu Kernel Team kernel builds located at http://kernel.ubuntu.com/~kernel-ppa/mainline and is passed as the directory or folder name without the trailing
 ## Step 4: Install and Update
 
 ### Boot ISO from USB device
