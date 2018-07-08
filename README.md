@@ -129,4 +129,4 @@ Nvidia:
 sudo prime-select nvidia
 ```
 
-**Note: A logout and login could be required when switching graphic cards.**
+**Note: A full reboot could be required when switching graphic cards.**
