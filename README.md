@@ -29,7 +29,7 @@ Kudos and all the credits for things not related to my work go to developers and
  - ❌ Goodix Fingerprint sensor
  
 ## Ready to use ISO
-You can download an already respun ISO [here](https://drive.google.com/file/d/12vqEIG2a0Ep_jawZ8vu1Jf__IUvgttDK/view?usp=sharing).
+You can download an already respun ISO [here](https://drive.google.com/file/d/1TzzASlP-PdhAXpYTba-xJFSb2ohhU8ht/view?usp=sharing).
 
 ## Manual respin procedure
 
