@@ -1,34 +1,6 @@
 #!/bin/bash
 
 ISOFILE=$1
-#KERNEL=$2
-#KERNELVERSION=$3
-
-#KERNELARGS=" -u "
-#GRUBOPTIONS="quiet splash acpi_rev_override=1"
-
-# Parse ARGS
-#POSITIONAL=()
-#while [[ $# -gt 0 ]]
-#do
-#    key="$1"
-#    
-#    case $key in
-#        -k|--kernel)
-#            echo "Setting kernel version..."
-#            KERNELVERSION="$2"
-#            KERNELARGS=" --kernel $KERNELVERSION "
-#            shift # past argument
-#            shift # past value
-#        ;;
-#        *)    # unknown option
-#            POSITIONAL+=("$1") # save it in an array for later
-#            shift # past argument
-#        ;;
-#    esac
-#done
-#set -- "${POSITIONAL[@]}" # restore positional parameters
-# End args parsing
 
 # If missing, download latest version of the script that will respin the ISO
 if [ ! -f isorespin.sh ]; then
