@@ -29,8 +29,11 @@ Kudos and all the credits for things not related to my work go to developers and
 ### What Doesn't Work at the Moment
 
  - ❌ Goodix Fingerprint sensor
+ 
+## Ready to use ISO
+You can download an already respun ISO [here](https://drive.google.com/file/d/12vqEIG2a0Ep_jawZ8vu1Jf__IUvgttDK/view?usp=sharing).
 
-### Overview for Building and Respinning an ISO
+### Manual respin procedure
 
 1. [Clone the repo and install necessary tools](#step-1-cloning-the-repo-and-installing-tools)
 2. [Download your Ubuntu 18.04 ISO](#step-2-download-your-ubuntu-1804-iso)
