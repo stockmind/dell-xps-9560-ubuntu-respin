@@ -9,6 +9,8 @@
 Collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images to let them run smooth on Dell XPS 15 9560.
 This might work on other Dell XPS too.
 
+The kernels used for respins are from the Ubuntu Kernel Team kernel builds located at http://kernel.ubuntu.com/~kernel-ppa/mainline . Kernels 4.15+ seems to work fine using the parameters and tweaks provided in this repository. No need for custom kernel patches.
+
 All informations, tips and tricks was gathered from:
 
 - [tomwwright gist for DELL XPS 15 9560](https://gist.github.com/tomwwright/f88e2ddb344cf99f299935e1312da880)
