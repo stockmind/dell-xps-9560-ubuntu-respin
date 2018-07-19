@@ -1,6 +1,6 @@
 ![DELL XPS 9570](https://github.com/jackhack96/dell-xps-9570-ubuntu-respin/raw/master/screenshot.png)
 
-# DELL XPS 15 9570 Ubuntu Respin
+# DELL XPS 15 9570 Ubuntu 18.04 Respin
 
 Collection of scripts and tweaks to make Ubuntu 18.04 run smooth on Dell XPS 15 9570.
 
