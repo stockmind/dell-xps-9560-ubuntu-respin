@@ -22,7 +22,6 @@ GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux scsi_mod.use_blk_mq=1 nouv
 chmod +x isorespin.sh
 
 ./isorespin.sh -i $ISOFILE \
---rolling-proposed \
 -r "ppa:graphics-drivers/ppa" \
 -r "ppa:linrunner/tlp" \
 -p "$installpackages" \
