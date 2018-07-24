@@ -96,11 +96,7 @@ Disable Secure boot in bios to boot from the ISO.
 
 If you want touchpad gestures, check https://github.com/bulletmark/libinput-gestures.
 
-### Troubleshooting
-
-Check the [wiki page](https://github.com/JackHack96/dell-xps-9570-ubuntu-respin/wiki/Troubleshooting) about it.
-
-#### Switch from one graphic card to the other
+### Switch from one graphic card to the other
 
 Intel:
 ```
@@ -112,3 +108,7 @@ sudo prime-select nvidia
 ```
 
 **Note: A full reboot could be required when switching graphic cards.**
+
+## Troubleshooting
+
+Check the [wiki page](https://github.com/JackHack96/dell-xps-9570-ubuntu-respin/wiki/Troubleshooting) about it.
