@@ -27,9 +27,16 @@ Kudos and all the credits for things not related to my work go to developers and
 ### What Doesn't Work at the Moment
 
  - ❌ Goodix Fingerprint sensor
- 
+
+## Post-installation script
+If you already have a standard Ubuntu installation, you can try applying basic tweaks with the `xps-tweaks.sh` script.
+You can run it directly without cloning the repository with the following command (requires `curl`):
+```shell
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/dell-xps-9570-ubuntu-respin/master/xps-tweaks.sh)"
+```
+
 ## Ready to use ISO
-You can download an already respun ISO [here](https://drive.google.com/file/d/1TzzASlP-PdhAXpYTba-xJFSb2ohhU8ht/view?usp=sharing).
+You can download an already respun ISO [here](https://drive.google.com/open?id=1sjMW3ca-Z6b6AqhrDLvYzirsrgIcUl83). The ISo contains kernel `4.17.9`.
 
 ## Manual respin procedure
 
