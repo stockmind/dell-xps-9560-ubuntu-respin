@@ -22,11 +22,12 @@ Kudos and all the credits for things not related to my work go to developers and
  - ✅ Nvidia/Intel graphic cards switch
  - ✅ Keyboard backlight
  - ✅ Display brightness
- - ✅ Sleep/wake
+ - ✅ Sleep/wake on Intel
 
 ### What Doesn't Work at the Moment
 
  - ❌ Goodix Fingerprint sensor
+ - ❌ Sleep/wake on nVidia
 
 ## Post-installation script
 If you already have a standard Ubuntu installation, you can try applying basic tweaks with the `xps-tweaks.sh` script.
