@@ -14,10 +14,12 @@ fi
 
 # Install all the power management tools
 add-apt-repository ppa:linrunner/tlp -y
+apt -y update
 apt install thermald tlp tlp-rdw powertop -y
 
 # Install the latest nVidia driver and codecs
 add-apt-repository ppa:graphics-drivers/ppa -y
+apt -y update
 apt install nvidia-driver-396 nvidia-prime bbswitch-dkms va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi -y
 
 # Create gpuoff.service for working around nouveau power management bug
