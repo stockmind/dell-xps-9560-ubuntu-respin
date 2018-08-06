@@ -47,7 +47,7 @@ WantedBy=multi-user.target
 " > /lib/systemd/system/powertop.service
 
 # Load and enable systemd units
-systemctl deamon-reload
+systemctl daemon-reload
 systemctl enable gpuoff.service
 systemctl enable powertop.service
 
