@@ -10,11 +10,13 @@ RUN wget -O isorespin.sh "https://drive.google.com/uc?export=download&id=0B99O3A
 
 RUN mkdir /docker-input
 RUN mkdir /docker-output
+RUN mkdir /services
 
 COPY ./docker-entrypoint.sh /
 COPY ./build.sh /
 COPY ./wrapper-network.sh /
 COPY ./wrapper-nvidia.sh /
+COPY ./services/gpuoff.service /services/
 
 RUN chmod +x docker-entrypoint.sh
 RUN chmod +x build.sh
