@@ -29,6 +29,9 @@ apt -y install nvidia-driver-396 nvidia-prime bbswitch-dkms pciutils
 # Install codecs
 apt -y install ubuntu-restricted-extras va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi
 
+# Other packages
+apt -y install intel-microcode
+
 # Install wifi drivers
 rm -f /lib/firmware/ath10k/QCA6174/hw3.0/*
 wget -O /lib/firmware/ath10k/QCA6174/hw3.0/board.bin https://github.com/kvalo/ath10k-firmware/blob/master/QCA6174/hw3.0/board.bin?raw=true
