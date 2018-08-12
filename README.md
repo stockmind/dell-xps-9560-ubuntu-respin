@@ -37,7 +37,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/dell-xps-9570
 ```
 
 ## Ready to use ISO
-You can download an already respun ISO [here](https://drive.google.com/open?id=1sjMW3ca-Z6b6AqhrDLvYzirsrgIcUl83). The ISo contains kernel `4.17.9`.
+You can download an already respun ISO [here](https://drive.google.com/open?id=1QMt2lX98IiyNMHv5sx-LIpqT_Z5UUQ8L).
 
 ## Manual respin procedure
 
