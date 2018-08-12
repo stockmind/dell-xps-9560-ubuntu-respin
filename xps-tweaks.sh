@@ -50,6 +50,7 @@ WantedBy=multi-user.target
 systemctl deamon-reload
 systemctl enable gpuoff.service
 systemctl enable powertop.service
+systemctl disable nvidia-fallback
 
 # Enable power saving tweaks for Intel chip
 echo "options i915 enable_fbc=1 enable_psr=2 enable_guc=-1 disable_power_well=0 fastboot=1" > /etc/modprobe.d/i915.conf
