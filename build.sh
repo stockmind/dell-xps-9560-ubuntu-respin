@@ -16,6 +16,8 @@ installpackages+="thermald tlp tlp-rdw powertop "
 installpackages+="nvidia-driver-396 nvidia-prime bbswitch-dkms pciutils "
 # Streaming and codecs for correct video encoding/play
 installpackages+="va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi"
+# Others
+installpackages+="intel-microcode "
 
 GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux scsi_mod.use_blk_mq=1 nouveau.modeset=0 nouveau.runpm=0"
 
