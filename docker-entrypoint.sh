@@ -38,8 +38,8 @@ if [ "$1" = 'respin' ]; then
 		else
 			echo "Kernel arguments found!"
 			echo "$@"
-			echo "./build.sh /docker-input/${@:2}"
-			./build.sh "/docker-input/${@:2}"
+			echo "./build.sh ${@:2}"
+			./build.sh "${@:2}"
 		fi
 
 		FILE=$2
@@ -47,8 +47,10 @@ if [ "$1" = 'respin' ]; then
 		FILECLEAN="${FILE##*/}"
 		# Today date
 		NOW=$(date +"%Y%m%d")
+		TIMESTAMP=$(date +"%Y%m%d%H%M%S")
 
     	mv linuxium-* "/docker-output/"
+    	mv isorespin.log "/docker-output/isorespin-$TIMESTAMP.log"
 	fi
 	
 	exit 0

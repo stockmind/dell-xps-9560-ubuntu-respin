@@ -113,6 +113,14 @@ If you don't set a -k flag, the latest mainline kernel will be installed during 
 
 Value for -k flag can be any of the Ubuntu Kernel Team kernel builds located at http://kernel.ubuntu.com/~kernel-ppa/mainline and is passed as the directory or folder name without the trailing
 
+### Build Ubuntu 16.04 ISO
+
+Launch build.sh script with `-c` compatibility parameter set to `xenialxerus`:
+
+```
+./build.sh <iso filename> -k <kernelversion> -c xenialxerus
+```
+
 ### Build Ubuntu 18.04 ISO or 2018+ newest distro
 
 Launch build.sh script with `-c` compatibility parameter set to `bionicbeaver`:

@@ -14,7 +14,7 @@ elif $(docker image inspect stockmind/dell-xps-9560-ubuntu-respin:latest >/dev/n
 	echo "Found Docker Hub image!"
 	IMAGENAME="stockmind/dell-xps-9560-ubuntu-respin"
 else
-	echo "Build docker image or download it from Docker Hub!"
+	echo -e "Build docker image or download it from Docker Hub!\n\ndocker pull stockmind/dell-xps-9560-ubuntu-respin\n\nOR\n\n./docker-build-image.sh"
 	exit 1
 fi
 
@@ -25,4 +25,4 @@ echo "Output dir: $OUTPUTDIR"
 # Refresh container
 docker rm $(docker ps -aq --filter name=dell-xps-9560-ubuntu-respin-container)
 # Run command
-docker run -t --cap-add MKNOD -v "$INPUTDIR":/docker-input -v "$OUTPUTDIR":/docker-output --privileged --name dell-xps-9560-ubuntu-respin-container "$IMAGENAME" respin $ISO "${@:2}"
+docker run -t --rm --cap-add MKNOD -v "$INPUTDIR":/docker-input -v "$OUTPUTDIR":/docker-output --privileged --name dell-xps-9560-ubuntu-respin-container "$IMAGENAME" respin $ISO "${@:2}"

@@ -4,6 +4,7 @@ ISOFILE=$1
 KERNEL=$2
 KERNELVERSION=$3
 
+INPUTFOLDER="/docker-input/"
 KERNELARGS=" -u "
 GRUBOPTIONS="quiet splash acpi_rev_override=1"
 
@@ -43,15 +44,8 @@ if [ ! -f isorespin.sh ]; then
 fi
 
 installpackages=""
-# Packages that will be installed:
-# Thermal management stuff and packages
-installpackages+="thermald "
-installpackages+="tlp "
-installpackages+="tlp-rdw  "
-installpackages+="powertop "
-# Streaming and codecs for correct video encoding/play
-installpackages+="va-driver-all "
-installpackages+="vainfo "
+
+# Packages that differs based on ubuntu version
 if [ -n "$COMPATIBILITY" ]; then
 	if [ "$COMPATIBILITY" == "bionicbeaver" ]; then
 		installpackages+="libva2 "
@@ -75,6 +69,16 @@ else
 	installpackages+="nvidia-390 "
 	installpackages+="nvidia-prime "
 fi
+
+# Packages that will be installed:
+# Thermal management stuff and packages
+installpackages+="thermald "
+installpackages+="tlp "
+installpackages+="tlp-rdw  "
+installpackages+="powertop "
+# Streaming and codecs for correct video encoding/play
+installpackages+="va-driver-all "
+installpackages+="vainfo "
 installpackages+="gstreamer1.0-libav "
 installpackages+="gstreamer1.0-vaapi "
 # Useful music/video player with large set of codecs
@@ -87,7 +91,18 @@ chmod +x isorespin.sh
 
 sync;
 
-./isorespin.sh -i $ISOFILE \
+if [ "$COMPATIBILITY" == "xenialxerus" ]; then
+	echo "isorespin.sh -i $INPUTFOLDER$ISOFILE"
+	wget -O libssl.deb http://mirrors.kernel.org/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+	# Xenialxerus require an upgraded libssl to use/install new kernels
+	./isorespin.sh -i "$INPUTFOLDER""$ISOFILE" --upgrade -l libssl.deb
+	mv linuxium-* $ISOFILE
+	INPUTFOLDER=""
+fi
+
+echo "isorespin.sh -i $INPUTFOLDER$ISOFILE"
+
+./isorespin.sh -i "$INPUTFOLDER""$ISOFILE" \
 	$KERNELARGS \
 	-r "ppa:graphics-drivers/ppa" \
 	-p "$installpackages" \
