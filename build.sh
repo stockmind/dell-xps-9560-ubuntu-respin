@@ -111,4 +111,5 @@ echo "isorespin.sh -i $INPUTFOLDER$ISOFILE"
 	-f services/gpuoff.service \
 	-c wrapper-network.sh \
 	-c wrapper-nvidia.sh \
+	-g "" \
 	-g "$GRUBOPTIONS"
