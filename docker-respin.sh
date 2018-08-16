@@ -7,12 +7,12 @@ OUTPUTDIR="$SCRIPTPATH""/destination"
 ORIGINDIR="origin/"
 ISO=${1#$ORIGINDIR} # Remove 'origin/' prefix path if found
 
-if $(docker image inspect stockmind/dell-xps-9560-ubuntu-respin:latest >/dev/null 2>&1); then
-	echo "Found Docker Hub image!"
-	IMAGENAME="stockmind/dell-xps-9560-ubuntu-respin"
-elif $(docker image inspect dell-xps-9560-ubuntu-respin >/dev/null 2>&1); then
+if $(docker image inspect dell-xps-9560-ubuntu-respin >/dev/null 2>&1); then
 	echo "Found local image!"
 	IMAGENAME="dell-xps-9560-ubuntu-respin"
+elif $(docker image inspect stockmind/dell-xps-9560-ubuntu-respin:latest >/dev/null 2>&1); then
+	echo "Found Docker Hub image!"
+	IMAGENAME="stockmind/dell-xps-9560-ubuntu-respin"
 else
 	echo "Build docker image or download it from Docker Hub!"
 	exit 1
