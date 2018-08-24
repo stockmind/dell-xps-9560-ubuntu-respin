@@ -79,7 +79,7 @@ prime-select intel 2>/dev/null
 
 # Tweak grub defaults
 GRUB_OPTIONS_VAR_NAME="GRUB_CMDLINE_LINUX_DEFAULT"
-GRUB_OPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux scsi_mod.use_blk_mq=1 nouveau.modeset=0 nouveau.runpm=0"
+GRUB_OPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux scsi_mod.use_blk_mq=1 nouveau.modeset=0 nouveau.runpm=0 mem_sleep_default=deep"
 GRUB_OPTIONS_VAR="$GRUB_OPTIONS_VAR_NAME=\"$GRUB_OPTIONS\""
 
 if cat /etc/default/grub | grep "$GRUB_OPTIONS_VAR" &>/dev/null
