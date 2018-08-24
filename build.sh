@@ -19,7 +19,7 @@ installpackages+="va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-va
 # Others
 installpackages+="intel-microcode"
 
-GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux scsi_mod.use_blk_mq=1 nouveau.modeset=0 nouveau.runpm=0"
+GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux scsi_mod.use_blk_mq=1 nouveau.modeset=0 nouveau.runpm=0 mem_sleep_default=deep"
 
 chmod +x isorespin.sh
 
