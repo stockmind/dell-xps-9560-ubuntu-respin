@@ -87,9 +87,8 @@ then
     echo "Grub is already tweaked!"
 else
     sed -i "s/^$GRUB_OPTIONS_VAR_NAME/# $GRUB_OPTIONS_VAR_NAME/g" /etc/default/grub
-    cat /etc/default/grub | \
-        awk 'FNR==NR{ if (/# '"$GRUB_OPTIONS_VAR_NAME"'/) p=NR; next} 1; FNR==p{ print "'"$GRUB_OPTIONS_VAR_NAME="'\"'"$GRUB_OPTIONS"'\"" }' | \
-        tee /etc/default/grub &> /dev/null
+    awk '/# '"$GRUB_OPTIONS_VAR_NAME"'/{print;print "'"$GRUB_OPTIONS_VAR_NAME"'=\"'"$GRUB_OPTIONS"'\"";next}1' /etc/default/grub | \
+        tee /etc/default/grub &>/dev/null
     update-grub
 fi
 
