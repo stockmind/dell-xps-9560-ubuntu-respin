@@ -51,19 +51,6 @@ ExecStart=/bin/bash -c "if [[ `prime-select query` == 'intel' ]]; then echo auto
 WantedBy=default.target
 EOF
 
-# Create powertop.service for power management
-cat << 'EOF' > /lib/systemd/system/powertop.service
-[Unit]
-Description=Powertop tunings
-
-[Service]
-ExecStart=/usr/sbin/powertop --auto-tune
-RemainAfterExit=true
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
 # Load and enable systemd units
 systemctl daemon-reload
 systemctl enable gpuoff.service
