@@ -54,7 +54,6 @@ EOF
 # Load and enable systemd units
 systemctl daemon-reload
 systemctl enable gpuoff.service
-systemctl enable powertop.service
 systemctl disable nvidia-fallback
 
 # Enable power saving tweaks for Intel chip
