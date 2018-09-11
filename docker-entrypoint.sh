@@ -34,12 +34,12 @@ if [ "$1" = 'respin' ]; then
 		# argument setted?
 		if [ -z "$3" ]; then
 			echo "No special arguments..."
-			./build.sh "/docker-input/$2" 
+			./build.sh "$2" --docker
 		else
 			echo "Kernel arguments found!"
 			echo "$@"
-			echo "./build.sh ${@:2}"
-			./build.sh "${@:2}"
+			echo "./build.sh ${@:2} --docker"
+			./build.sh "${@:2}" --docker
 		fi
 
 		FILE=$2

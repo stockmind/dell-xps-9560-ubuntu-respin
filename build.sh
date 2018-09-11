@@ -4,7 +4,7 @@ ISOFILE=$1
 KERNEL=$2
 KERNELVERSION=$3
 
-INPUTFOLDER="/docker-input/"
+INPUTFOLDER=""
 KERNELARGS=" -u "
 GRUBOPTIONS="quiet splash acpi_rev_override=1"
 
@@ -25,6 +25,12 @@ case $key in
     -c|--compatibility)
     echo "Setting compatibility..."
     COMPATIBILITY="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -d|--docker)
+    echo "Called from docker..."
+    INPUTFOLDER="/docker-input/"
     shift # past argument
     shift # past value
     ;;
