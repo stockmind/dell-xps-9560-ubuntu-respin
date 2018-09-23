@@ -30,7 +30,6 @@ chmod +x isorespin.sh
 -f wrapper-network.sh \
 -f wrapper-nvidia.sh \
 -f update-packages.sh \
--f services/gpuoff.service \
 -c wrapper-network.sh \
 -c wrapper-nvidia.sh \
 -c update-packages.sh \

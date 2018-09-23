@@ -12,7 +12,9 @@ if [ "$EUID" -ne 0 ]; then
     exit 2
 fi
 
+# Enable universe and proposed
 add-apt-repository -y universe
+echo 'deb http://archive.ubuntu.com/ubuntu/ bionic-proposed restricted main multiverse universe' > /etc/apt/sources.list
 apt -y update
 apt -y full-upgrade
 
@@ -37,19 +39,6 @@ rm -f /lib/firmware/ath10k/QCA6174/hw3.0/*
 wget -O /lib/firmware/ath10k/QCA6174/hw3.0/board.bin https://github.com/kvalo/ath10k-firmware/blob/master/QCA6174/hw3.0/board.bin?raw=true
 wget -O /lib/firmware/ath10k/QCA6174/hw3.0/board-2.bin https://github.com/kvalo/ath10k-firmware/blob/master/QCA6174/hw3.0/board-2.bin?raw=true
 wget -O /lib/firmware/ath10k/QCA6174/hw3.0/firmware-4.bin https://github.com/kvalo/ath10k-firmware/blob/master/QCA6174/hw3.0/firmware-4.bin_WLAN.RM.2.0-00180-QCARMSWPZ-1?raw=true
-
-# Create gpuoff.service for working around nouveau power management bug
-cat << 'EOF' > /lib/systemd/system/gpuoff.service
-[Unit]
-Description=Power-off gpu
-
-[Service]
-Type=oneshot
-ExecStart=/bin/bash -c "if [[ `prime-select query` == 'intel' ]]; then echo auto > /sys/bus/pci/devices/0000\:01\:00.0/power/control; fi"
-
-[Install]
-WantedBy=default.target
-EOF
 
 # Load and enable systemd units
 systemctl daemon-reload
