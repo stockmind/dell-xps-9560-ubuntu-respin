@@ -14,7 +14,6 @@ fi
 
 # Enable universe and proposed
 add-apt-repository -y universe
-echo 'deb http://archive.ubuntu.com/ubuntu/ bionic-proposed restricted main multiverse universe' > /etc/apt/sources.list
 apt -y update
 apt -y full-upgrade
 
