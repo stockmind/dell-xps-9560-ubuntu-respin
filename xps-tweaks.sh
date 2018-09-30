@@ -22,6 +22,10 @@ add-apt-repository -y ppa:linrunner/tlp
 apt -y update
 apt -y install thermald tlp tlp-rdw powertop
 
+# Fix Sleep/Wake Bluetooth Bug
+sed -i '/RESTORE_DEVICE_STATE_ON_STARTUP/s/=.*/=1/' /etc/default/tlp
+systemctl restart tlp
+
 # Install the latest nVidia driver and codecs
 add-apt-repository -y ppa:graphics-drivers/ppa
 apt -y update
