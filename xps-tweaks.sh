@@ -45,7 +45,6 @@ wget -O /lib/firmware/ath10k/QCA6174/hw3.0/firmware-4.bin https://github.com/kva
 
 # Load and enable systemd units
 systemctl daemon-reload
-systemctl enable gpuoff.service
 systemctl disable nvidia-fallback
 
 # Enable power saving tweaks for Intel chip
