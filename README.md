@@ -120,3 +120,6 @@ sudo prime-select nvidia
 ## Troubleshooting
 
 Check the [wiki page](https://github.com/JackHack96/dell-xps-9570-ubuntu-respin/wiki/Troubleshooting) about it.
+
+
+# For Ubuntu 18.10, check this link: [https://www.reddit.com/r/Dell/comments/9puckt/ubuntu_1810_on_dell_xps_15_9570/](https://www.reddit.com/r/Dell/comments/9puckt/ubuntu_1810_on_dell_xps_15_9570/).
