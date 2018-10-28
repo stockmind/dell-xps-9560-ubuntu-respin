@@ -29,7 +29,7 @@ systemctl restart tlp
 # Install the latest nVidia driver and codecs
 add-apt-repository -y ppa:graphics-drivers/ppa
 apt -y update
-apt -y install nvidia-driver-410 nvidia-prime bbswitch-dkms pciutils
+apt -y install nvidia-driver-410 libnvidia-gl-396:i386 nvidia-prime bbswitch-dkms pciutils
 
 # Install codecs
 apt -y install ubuntu-restricted-extras va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi
