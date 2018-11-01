@@ -13,7 +13,7 @@ installpackages=""
 # Thermal management stuff and packages
 installpackages+="thermald tlp tlp-rdw powertop "
 # Nvidia
-installpackages+="nvidia-driver-410 libnvidia-gl-396:i386 nvidia-prime bbswitch-dkms pciutils "
+installpackages+="nvidia-driver-410 libnvidia-gl-410 nvidia-prime bbswitch-dkms pciutils "
 # Streaming and codecs for correct video encoding/play
 installpackages+="va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi "
 # Others
