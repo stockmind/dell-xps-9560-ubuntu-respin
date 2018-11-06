@@ -45,8 +45,9 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 # If missing, download latest version of the script that will respin the ISO
 if [ ! -f isorespin.sh ]; then
-	echo "Isorespin script not found. Downloading it..."
-	wget -O isorespin.sh "https://drive.google.com/uc?export=download&id=0B99O3A0dDe67S053UE8zN3NwM2c"
+	echo "Isorespin script not found. Please get a complete copy of this toolkit from"
+	echo "https://github.com/stockmind/dell-xps-9560-ubuntu-respin"
+	exit 1
 fi
 
 installpackages=""
