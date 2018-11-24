@@ -12,14 +12,28 @@ installpackages=""
 # Packages that will be installed:
 # Thermal management stuff and packages
 installpackages+="thermald tlp tlp-rdw powertop "
-# Nvidia
-installpackages+="nvidia-driver-410 libnvidia-gl-410 nvidia-prime bbswitch-dkms pciutils "
+
 # Streaming and codecs for correct video encoding/play
-installpackages+="va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi "
+echo "Do you wish to install video codecs for encoding and playing videos?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) installpackages+="va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi "; break;;
+        No ) exit;;
+    esac
+done
+
 # Others
 installpackages+="intel-microcode"
 
-GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux scsi_mod.use_blk_mq=1 nouveau.modeset=0 nouveau.runpm=0 mem_sleep_default=deep"
+GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux nouveau.modeset=0 pcie_aspm=force drm.vblankoffdelay=1 scsi_mod.use_blk_mq=1 nouveau.runpm=0 mem_sleep_default=deep "
+echo "Do you wish to disable SPECTRE/Meltdown patches for performance?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) GRUBOPTIONS+="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"; break;;
+        No ) exit;;
+    esac
+done
+
 
 chmod +x isorespin.sh
 

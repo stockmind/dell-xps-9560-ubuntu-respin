@@ -29,10 +29,16 @@ systemctl restart tlp
 # Install the latest nVidia driver and codecs
 add-apt-repository -y ppa:graphics-drivers/ppa
 apt -y update
-apt -y install nvidia-driver-410 libnvidia-gl-410 nvidia-prime bbswitch-dkms pciutils
+ubuntu-drivers autoinstall
 
 # Install codecs
-apt -y install ubuntu-restricted-extras va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi
+echo "Do you wish to install video codecs for encoding and playing videos?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) apt -y install ubuntu-restricted-extras va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi; break;;
+        No ) exit;;
+    esac
+done
 
 # Other packages
 apt -y install intel-microcode
@@ -48,7 +54,7 @@ systemctl daemon-reload
 systemctl disable nvidia-fallback
 
 # Enable power saving tweaks for Intel chip
-echo "options i915 enable_fbc=1 enable_psr=2 enable_guc=-1 disable_power_well=0 fastboot=1" > /etc/modprobe.d/i915.conf
+echo "options i915 enable_fbc=1 enable_guc=3 disable_power_well=0 fastboot=1" > /etc/modprobe.d/i915.conf
 update-initramfs -u
 
 # Switch to Intel card
@@ -56,7 +62,14 @@ prime-select intel 2>/dev/null
 
 # Tweak grub defaults
 GRUB_OPTIONS_VAR_NAME="GRUB_CMDLINE_LINUX_DEFAULT"
-GRUB_OPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux scsi_mod.use_blk_mq=1 nouveau.modeset=0 nouveau.runpm=0 mem_sleep_default=deep"
+GRUB_OPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux nouveau.modeset=0 pcie_aspm=force drm.vblankoffdelay=1 scsi_mod.use_blk_mq=1 nouveau.runpm=0 mem_sleep_default=deep "
+echo "Do you wish to disable SPECTRE/Meltdown patches for performance?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) GRUBOPTIONS+="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"; break;;
+        No ) exit;;
+    esac
+done
 GRUB_OPTIONS_VAR="$GRUB_OPTIONS_VAR_NAME=\"$GRUB_OPTIONS\""
 
 if cat /etc/default/grub | grep "$GRUB_OPTIONS_VAR" &>/dev/null
