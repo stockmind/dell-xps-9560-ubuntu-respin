@@ -4,6 +4,13 @@
 
 # DELL XPS 15 9570 Ubuntu 18.04 Respin
 
+### Table of Contents
+1. [Post-install script](#post-install-script)
+2. [Ready to use ISO](#ready-to-use-iso)
+3. [Manual respin procedure](#manual-respin-procedure)
+4. [Switching from one graphic card to the other](#how-to-switch-from-one-graphic-card-to-the-other)
+5. [Troubleshooting](#troubleshooting)
+
 Collection of scripts and tweaks to make Ubuntu 18.04 run smooth on Dell XPS 15 9570.
 
 All informations, tips and tricks was gathered from:
@@ -31,8 +38,8 @@ Kudos and all the credits for things not related to my work go to developers and
 
  - ❌ Goodix Fingerprint sensor
 
-## Post-installation script
-If you already have a standard Ubuntu installation, you can try applying basic tweaks with the `xps-tweaks.sh` script.
+## Post-install script
+If you already have a standard Ubuntu install, you can try applying basic tweaks with the `xps-tweaks.sh` script.
 You can run it directly without cloning the repository with the following command (requires `curl`):
 ```shell
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/dell-xps-9570-ubuntu-respin/master/xps-tweaks.sh)"
@@ -48,7 +55,7 @@ You can download an already respun ISO [here](https://drive.google.com/file/d/1C
 3. [Respin the ISO (it many take a about 30 minutes or even longer)](#step-3-build-your-respun-iso)
 4. [Install OS and run post-install commands](#step-4-install-and-update)
 
-## Step 1: Cloning the Repo and Installing Tools
+### Step 1: Cloning the Repo and Installing Tools
 
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with some packages like `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection. Script require at least 10GB of free storage space.
 
@@ -57,44 +64,44 @@ The first step is to clone this repo:
 git clone https://github.com/jackhack96/dell-xps-9570-ubuntu-respin.git
 cd dell-xps-9570-ubuntu-respin/
 ```
-### Debian-based systems:
+#### Debian-based systems:
 
 Install all the required packages:
 ```
 sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
 ```
-### Arch-Based Systems:
+#### Arch-Based Systems:
 
 Install all the required packages:
 ``` 
 sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 ```
 
-## Step 2: Download your Ubuntu 18.04 ISO
+### Step 2: Download your Ubuntu 18.04 ISO
 
 Download Ubuntu 18.04 ISO and copy it in this repository cloned folder.
 
-## Step 3: Build Your Respun ISO
+### Step 3: Build Your Respun ISO
 
 Run `./build.sh` script as specified for your desired distro.
 
-### Build on Debian-based systems:
+#### Build on Debian-based systems:
 
 * Build ISO running this:
 ```
 ./build.sh <iso filename>
 ```
 
-### Build on Arch-based systems:
+#### Build on Arch-based systems:
 
 * Build ISO running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename>
 ```  
 
-## Step 4: Install and Update
+### Step 4: Install and Update
 
-### Boot ISO from USB device
+#### Boot ISO from USB device
 
 I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
@@ -106,7 +113,7 @@ Disable Secure boot in bios to boot from the ISO.
 
 If you want touchpad gestures, check https://github.com/bulletmark/libinput-gestures.
 
-### Switch from one graphic card to the other
+## How to switch from one graphic card to the other
 
 Intel:
 ```
