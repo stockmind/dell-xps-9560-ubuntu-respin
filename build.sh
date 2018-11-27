@@ -36,8 +36,8 @@ done
 
 
 chmod +x isorespin.sh
--u \
 ./isorespin.sh -i $ISOFILE \
+-u \
 -r "ppa:graphics-drivers/ppa" \
 -r "ppa:linrunner/tlp" \
 -p "$installpackages" \
