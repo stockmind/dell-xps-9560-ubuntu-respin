@@ -22,7 +22,7 @@ echo "Output file is $OUTPUT"
 
 
 # Build ISO
-bash build.sh $INPUT -v true -s true
+bash build.sh -i $INPUT -v true -s true
 
 # Move built is to specified output location
 if [ $? ]; then

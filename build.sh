@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ISOFILE=$1
+ISOFILE=''
 # if -v flag is set true then install video codecs for encoding and playing videos
 video_flag=''
 # if -s flag is set true then SPECTRE/Meltdown patches will be used
@@ -42,15 +42,14 @@ validate_flags() {
 
 
 # Parse flags
-while getopts 'hv:s:' flag; do
+while getopts 'hi:v:s:' flag; do
   case "${flag}" in
     h) print_help ;;
+    i) ISOFILE=$OPTARG ;;
     v) video_flag=$OPTARG ;;
-    s) spectre_flag=$OPTARG
-       exit 1 ;;
+    s) spectre_flag=$OPTARG ;
    esac
 done
-echo 'flags parsed'
 
 installpackages="."
 
