@@ -58,7 +58,7 @@ installpackages=""
 # Thermal management stuff and packages
 installpackages+="thermald tlp tlp-rdw powertop "
 # Stability and security updates to the processor
-installpackages+="intel-microcode"
+installpackages+="intel-microcode "
 
 # If user didnt set video codecs flag then ask them now
 if [ -z $video_flag ]; then
