@@ -83,21 +83,15 @@ Download Ubuntu 18.04 ISO and copy it in this repository cloned folder.
 
 ### Step 3: Build Your Respun ISO
 
-Run `./build.sh` script as specified for your desired distro.
+Run `./build.sh` script like this:
+```shell
+./build.sh -i <iso filename>
+``` 
+There are also two flags you can set for enabling other options:
+- The `v` flag will autoinstall video codecs if set to  `true`
+- The `s` flag will disable SPECTRE/Meltdown patches for additional performance if set to `false`
 
-#### Build on Debian-based systems:
-
-* Build ISO running this:
-```
-./build.sh <iso filename>
-```
-
-#### Build on Arch-based systems:
-
-* Build ISO running this:
-```
-PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename>
-```  
+Run `./build.sh -h` for help.
 
 ### Step 4: Install and Update
 
