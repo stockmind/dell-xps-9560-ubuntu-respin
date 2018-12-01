@@ -51,8 +51,6 @@ while getopts 'hi:v:s:' flag; do
    esac
 done
 
-installpackages="."
-
 installpackages=""
 # Packages that will be installed:
 # Thermal management stuff and packages
@@ -98,14 +96,12 @@ fi
 chmod +x isorespin.sh
 
 ./isorespin.sh -i $ISOFILE \
--u \
+-k v4.19.5 \
 -r "ppa:graphics-drivers/ppa" \
 -r "ppa:linrunner/tlp" \
 -p "$installpackages" \
 -f wrapper-network.sh \
 -f wrapper-nvidia.sh \
--f update-packages.sh \
 -c wrapper-network.sh \
 -c wrapper-nvidia.sh \
--c update-packages.sh \
 -g "$GRUBOPTIONS"
