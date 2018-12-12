@@ -15,7 +15,7 @@ fi
 print_help() {
   echo '-h    Print this help message'
   echo '-v [true|false]   When set to true video codecs for encoding and playing videos will be installed'
-  echo '-s [true|false]   When set to true SPECTRE/Meltdown patches will be used, set to false for performance'
+  echo '-s [true|false]   When set to true SPECTRE/Meltdown patches will be disabled for additional performance'
   exit 0
 }
 
@@ -31,15 +31,14 @@ validate_flags() {
   fi
 
   if [ $spectre_flag == 'true'  ]; then
-    echo 'SPECTRE/Meltdown pathces will be used, this might impact performance'
+    echo 'SPECTRE/Meltdown patches will be disabled'
   elif [ $spectre_flag == 'false' ]; then
-    echo 'SPECTRE/Meltdown pathces will not be used'
+    echo 'SPECTRE/Meltdown patches will be used'
   else
     echo '-s must be true or false'
     exit 1
   fi
 }
-
 
 # Parse flags
 while getopts 'hi:v:s:' flag; do
@@ -51,14 +50,7 @@ while getopts 'hi:v:s:' flag; do
    esac
 done
 
-installpackages=""
-# Packages that will be installed:
-# Thermal management stuff and packages
-installpackages+="thermald tlp tlp-rdw powertop "
-# Stability and security updates to the processor
-installpackages+="intel-microcode "
-
-# If user didnt set video codecs flag then ask them now
+# If user didn't set video codecs flag then ask them now
 if [ -z $video_flag ]; then
   # Streaming and codecs for correct video encoding/play
   echo "Do you wish to install video codecs for encoding and playing videos?"
@@ -70,12 +62,9 @@ if [ -z $video_flag ]; then
   done
 fi
 
-
-GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux nouveau.modeset=0 pcie_aspm=force drm.vblankoffdelay=1 scsi_mod.use_blk_mq=1 nouveau.runpm=0 mem_sleep_default=deep "
-
 # if user didnt set flag for spectre then ask them now
 if [ -z $spectre_flag ]; then
-  echo "Do you wish to install SPECTRE/Meltdown patches, this may impact performance?"
+  echo "Do you wish to disable SPECTRE/Meltdown patches for additional performance?"
   select yn in "Yes" "No"; do
     case $yn in
       Yes ) spectre_flag='true'; break;;
@@ -84,24 +73,35 @@ if [ -z $spectre_flag ]; then
   done
 fi
 
+installpackages=""
+# Packages that will be installed:
+# Thermal management stuff and packages
+installpackages+="thermald tlp tlp-rdw powertop "
+# Stability and security updates to the processor
+installpackages+="intel-microcode "
+
+GRUBOPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux nouveau.modeset=0 pcie_aspm=force drm.vblankoffdelay=1 scsi_mod.use_blk_mq=1 nouveau.runpm=0 mem_sleep_default=deep "
+
 validate_flags
 
 if [ $video_flag = 'true' ]; then
   installpackages+="va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi "
 fi
 if [ $spectre_flag = 'true' ]; then
-  GRUBOPTIONS+="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"
+  GRUBOPTIONS+="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier "
 fi
 
 chmod +x isorespin.sh
 
 ./isorespin.sh -i $ISOFILE \
--k v4.19.5 \
+-k v4.19.8 \
 -r "ppa:graphics-drivers/ppa" \
 -r "ppa:linrunner/tlp" \
 -p "$installpackages" \
 -f wrapper-network.sh \
 -f wrapper-nvidia.sh \
+-f update-packages.sh \
 -c wrapper-network.sh \
 -c wrapper-nvidia.sh \
+-c update-packages.sh \
 -g "$GRUBOPTIONS"
