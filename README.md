@@ -46,7 +46,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/dell-xps-9570
 ```
 
 ## Ready to use ISO
-You can download an already respun ISO [here](https://drive.google.com/open?id=1qPN1YcBkLXCyinhBvIj7JF2pzqvj_RlG).
+You can download an already respun ISO [here](https://drive.google.com/open?id=1fKNgomSxHpQEXZTSLrTem03unu5peDFu).
 
 ## Manual respin procedure
 
