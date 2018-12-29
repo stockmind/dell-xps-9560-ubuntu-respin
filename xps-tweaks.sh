@@ -70,7 +70,7 @@ GRUB_OPTIONS="quiet acpi_rev_override=1 acpi_osi=Linux nouveau.modeset=0 pcie_as
 echo "Do you wish to disable SPECTRE/Meltdown patches for performance?"
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) GRUBOPTIONS+="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"; break;;
+        Yes ) GRUB_OPTIONS+="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"; break;;
         No ) exit;;
     esac
 done
