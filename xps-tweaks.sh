@@ -71,7 +71,7 @@ echo "Do you wish to disable SPECTRE/Meltdown patches for performance?"
 select yn in "Yes" "No"; do
     case $yn in
         Yes ) GRUB_OPTIONS+="pti=off spectre_v2=off l1tf=off nospec_store_bypass_disable no_stf_barrier"; break;;
-        No ) exit;;
+        No ) break;;
     esac
 done
 GRUB_OPTIONS_VAR="$GRUB_OPTIONS_VAR_NAME=\"$GRUB_OPTIONS\""
