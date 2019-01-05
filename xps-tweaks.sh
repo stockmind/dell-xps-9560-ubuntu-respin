@@ -36,7 +36,7 @@ echo "Do you wish to install video codecs for encoding and playing videos?"
 select yn in "Yes" "No"; do
     case $yn in
         Yes ) apt -y install ubuntu-restricted-extras va-driver-all vainfo libva2 gstreamer1.0-libav gstreamer1.0-vaapi; break;;
-        No ) exit;;
+        No ) break;;
     esac
 done
 
