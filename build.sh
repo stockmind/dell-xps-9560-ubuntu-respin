@@ -3,8 +3,6 @@
 ISOFILE=''
 # if -v flag is set true then install video codecs for encoding and playing videos
 video_flag=''
-# if -a flag is set true then enable high quality audio
-audio_flag=''
 # if -s flag is set true then SPECTRE/Meltdown patches will be used
 spectre_flag=''
 
@@ -17,7 +15,6 @@ fi
 print_help() {
   echo '-h    Print this help message'
   echo '-v [true|false]   When set to true video codecs for encoding and playing videos will be installed'
-  echo '-a [true|false]   When set to true high quality audio will be enabled'
   echo '-s [true|false]   When set to true SPECTRE/Meltdown patches will be disabled for additional performance'
   exit 0
 }
@@ -30,15 +27,6 @@ validate_flags() {
     echo 'Video codecs will not be installed'
   else
     echo '-v must be true or false'
-    exit 1
-  fi
-
-  if [ $audio_flag == 'true'  ]; then
-    echo 'High quality audio will be enabled'
-  elif [ $audio_flag == 'false' ]; then
-    echo 'High quality audio will be disabled'
-  else
-    echo '-s must be true or false'
     exit 1
   fi
 
@@ -58,7 +46,6 @@ while getopts 'hi:v:a:s:' flag; do
     h) print_help ;;
     i) ISOFILE=$OPTARG ;;
     v) video_flag=$OPTARG ;;
-    a) audio_flag=$OPTARG ;;
     s) spectre_flag=$OPTARG ;;
    esac
 done
@@ -71,17 +58,6 @@ if [ -z "$video_flag" ]; then
     case $yn in
       Yes ) video_flag='true'; break;;
       No ) video_flag='false'; break;;
-    esac
-  done
-fi
-
-# If user didn't set high quality audio then ask them now
-if [ -z "$audio_flag" ]; then
-  echo "Do you wish to enable high quality audio? (this may affect battery usage)"
-  select yn in "Yes" "No"; do
-    case $yn in
-      Yes ) audio_flag='true'; break;;
-      No ) audio_flag='false'; break;;
     esac
   done
 fi
@@ -124,6 +100,6 @@ chmod +x isorespin.sh
 -p "$installpackages" \
 -c update-packages.sh \
 -c wrapper-network.sh \
--c wrapper-audio.sh "$audio_flag"\
+-c wrapper-audio.sh \
 -c wrapper-nvidia.sh \
 -g "$GRUBOPTIONS"

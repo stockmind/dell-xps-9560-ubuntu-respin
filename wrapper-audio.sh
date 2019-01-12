@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$@" == 'true'  ]; then
-    echo "# This file is part of PulseAudio.
+echo "# This file is part of PulseAudio.
 #
 # PulseAudio is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -90,4 +89,3 @@ default-fragment-size-msec = 125
 ; enable-deferred-volume = yes
 deferred-volume-safety-margin-usec = 1
 ; deferred-volume-extra-delay-usec = 0" > /etc/pulse/daemon.conf
-fi
