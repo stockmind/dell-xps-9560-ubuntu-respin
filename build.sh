@@ -46,12 +46,13 @@ while getopts 'hi:v:s:' flag; do
     h) print_help ;;
     i) ISOFILE=$OPTARG ;;
     v) video_flag=$OPTARG ;;
-    s) spectre_flag=$OPTARG ;
+    s) spectre_flag=$OPTARG ;;
+    *) ;;
    esac
 done
 
 # If user didn't set video codecs flag then ask them now
-if [ -z $video_flag ]; then
+if [ -z "$video_flag" ]; then
   # Streaming and codecs for correct video encoding/play
   echo "Do you wish to install video codecs for encoding and playing videos?"
   select yn in "Yes" "No"; do
@@ -63,7 +64,7 @@ if [ -z $video_flag ]; then
 fi
 
 # if user didnt set flag for spectre then ask them now
-if [ -z $spectre_flag ]; then
+if [ -z "$spectre_flag" ]; then
   echo "Do you wish to disable SPECTRE/Meltdown patches for additional performance?"
   select yn in "Yes" "No"; do
     case $yn in
@@ -93,7 +94,7 @@ fi
 
 chmod +x isorespin.sh
 
-./isorespin.sh -i $ISOFILE \
+./isorespin.sh -i "$ISOFILE" \
 -k v4.19.8 \
 -r "ppa:graphics-drivers/ppa" \
 -r "ppa:linrunner/tlp" \
