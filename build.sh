@@ -1,8 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ISOFILE=''
 # if -v flag is set true then install video codecs for encoding and playing videos
 video_flag=''
+# if -a flag is set true then enable high quality audio
+audio_flag=''
 # if -s flag is set true then SPECTRE/Meltdown patches will be used
 spectre_flag=''
 
@@ -15,6 +17,7 @@ fi
 print_help() {
   echo '-h    Print this help message'
   echo '-v [true|false]   When set to true video codecs for encoding and playing videos will be installed'
+  echo '-a [true|false]   When set to true high quality audio will be enabled'
   echo '-s [true|false]   When set to true SPECTRE/Meltdown patches will be disabled for additional performance'
   exit 0
 }
@@ -22,11 +25,20 @@ print_help() {
 # Checks if flags are set to valid true or false, also lets the user know what was selected
 validate_flags() {
   if [ $video_flag == 'true'  ]; then
-    echo 'video codecs will be installed'
+    echo 'Video codecs will be installed'
   elif [ $video_flag == 'false' ]; then
-    echo 'video codecs will not be installed'
+    echo 'Video codecs will not be installed'
   else
     echo '-v must be true or false'
+    exit 1
+  fi
+
+  if [ $audio_flag == 'true'  ]; then
+    echo 'High quality audio will be enabled'
+  elif [ $audio_flag == 'false' ]; then
+    echo 'High quality audio will be disabled'
+  else
+    echo '-s must be true or false'
     exit 1
   fi
 
@@ -41,13 +53,13 @@ validate_flags() {
 }
 
 # Parse flags
-while getopts 'hi:v:s:' flag; do
+while getopts 'hi:v:a:s:' flag; do
   case "${flag}" in
     h) print_help ;;
     i) ISOFILE=$OPTARG ;;
     v) video_flag=$OPTARG ;;
+    a) audio_flag=$OPTARG ;;
     s) spectre_flag=$OPTARG ;;
-    *) ;;
    esac
 done
 
@@ -63,7 +75,18 @@ if [ -z "$video_flag" ]; then
   done
 fi
 
-# if user didnt set flag for spectre then ask them now
+# If user didn't set high quality audio then ask them now
+if [ -z "$audio_flag" ]; then
+  echo "Do you wish to enable high quality audio? (this may affect battery usage)"
+  select yn in "Yes" "No"; do
+    case $yn in
+      Yes ) audio_flag='true'; break;;
+      No ) audio_flag='false'; break;;
+    esac
+  done
+fi
+
+# If user didnt set flag for spectre then ask them now
 if [ -z "$spectre_flag" ]; then
   echo "Do you wish to disable SPECTRE/Meltdown patches for additional performance?"
   select yn in "Yes" "No"; do
@@ -74,8 +97,8 @@ if [ -z "$spectre_flag" ]; then
   done
 fi
 
-installpackages=""
 # Packages that will be installed:
+installpackages=""
 # Thermal management stuff and packages
 installpackages+="thermald tlp tlp-rdw powertop "
 # Stability and security updates to the processor
@@ -95,14 +118,12 @@ fi
 chmod +x isorespin.sh
 
 ./isorespin.sh -i "$ISOFILE" \
--k v4.19.8 \
+-k v4.19.14 \
 -r "ppa:graphics-drivers/ppa" \
 -r "ppa:linrunner/tlp" \
 -p "$installpackages" \
--f wrapper-network.sh \
--f wrapper-nvidia.sh \
--f update-packages.sh \
--c wrapper-network.sh \
--c wrapper-nvidia.sh \
 -c update-packages.sh \
+-c wrapper-network.sh \
+-c wrapper-audio.sh "$audio_flag"\
+-c wrapper-nvidia.sh \
 -g "$GRUBOPTIONS"
