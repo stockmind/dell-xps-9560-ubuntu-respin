@@ -98,7 +98,7 @@ Run `./build.sh -h` for help.
 
 #### Boot ISO from USB device
 
-I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
+I suggest [Etcher](https://etcher.io/) to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
 
 Boot system using one time boot menu.
