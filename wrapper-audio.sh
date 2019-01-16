@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Enable high definition audio
 echo "# This file is part of PulseAudio.
 #
 # PulseAudio is free software; you can redistribute it and/or modify
@@ -90,5 +91,6 @@ default-fragment-size-msec = 125
 deferred-volume-safety-margin-usec = 1
 ; deferred-volume-extra-delay-usec = 0" > /etc/pulse/daemon.conf
 
+# Enable LDAC, APTX, APTX-HD, AAC support in PulseAudio Bluetooth module
 add-apt-repository ppa:eh5/pulseaudio-a2dp
 apt-get install libavcodec-dev libldac pulseaudio-module-bluetooth
