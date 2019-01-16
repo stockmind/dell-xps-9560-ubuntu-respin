@@ -89,3 +89,6 @@ default-fragment-size-msec = 125
 ; enable-deferred-volume = yes
 deferred-volume-safety-margin-usec = 1
 ; deferred-volume-extra-delay-usec = 0" > /etc/pulse/daemon.conf
+
+add-apt-repository ppa:eh5/pulseaudio-a2dp
+apt-get install libavcodec-dev libldac pulseaudio-module-bluetooth
