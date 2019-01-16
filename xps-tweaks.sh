@@ -156,6 +156,9 @@ if [[ $(uname -r) == *"4.15"* ]]; then
 else
     echo "options i915 enable_fbc=1 enable_guc=3 disable_power_well=0 fastboot=1" > /etc/modprobe.d/i915.conf
 fi
+# Let users check fan speed with lm-sensors
+echo "options dell-smm-hwmon restricted=0 force=1" > /etc/modprobe.d/dell-smm-hwmon.conf
+echo "dell-smm-hwmon" >> /etc/modules
 update-initramfs -u
 
 # Switch to Intel card
