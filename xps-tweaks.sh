@@ -137,6 +137,11 @@ deferred-volume-safety-margin-usec = 1
     esac
 done
 
+# Enable LDAC, APTX, APTX-HD, AAC support in PulseAudio Bluetooth
+add-apt-repository ppa:eh5/pulseaudio-a2dp
+apt-get update
+apt-get install libavcodec-dev libldac pulseaudio-module-bluetooth
+
 # Other packages
 apt -y install intel-microcode
 
