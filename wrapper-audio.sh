@@ -93,4 +93,5 @@ deferred-volume-safety-margin-usec = 1
 
 # Enable LDAC, APTX, APTX-HD, AAC support in PulseAudio Bluetooth module
 add-apt-repository ppa:eh5/pulseaudio-a2dp
+apt-get update
 apt-get install libavcodec-dev libldac pulseaudio-module-bluetooth
