@@ -23,7 +23,7 @@ All informations, tips and tricks was gathered from:
 
 Kudos and all the credits for things not related to my work go to developers and users on those pages!
 
-### What Works Out-of-the-Box
+### What works out-of-the-box
 
  - ✅ Atheros Wifi
  - ✅ Audio
@@ -33,9 +33,11 @@ Kudos and all the credits for things not related to my work go to developers and
  - ✅ Keyboard backlight
  - ✅ Display brightness
  - ✅ Sleep/wake on Intel
- - ✅ Sleep/wake on nVidia (not working reliably)
 
-### What Doesn't Work at the Moment
+### What does't work properly
+ - ➖ Sleep/wake on nVidia
+
+### What doesn't work at the moment
 
  - ❌ Goodix Fingerprint sensor
 
