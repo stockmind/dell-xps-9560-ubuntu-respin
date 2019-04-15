@@ -94,7 +94,7 @@ fi
 chmod +x isorespin.sh
 
 ./isorespin.sh -i "$ISOFILE" \
--k v4.19.14 \
+-k v5.0.7 \
 -f update-packages.sh \
 -f wrapper-network.sh \
 -f wrapper-audio.sh \
