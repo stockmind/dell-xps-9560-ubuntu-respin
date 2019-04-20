@@ -3,7 +3,7 @@
 
 ![DELL XPS 9570](https://github.com/jackhack96/dell-xps-9570-ubuntu-respin/raw/master/screenshot.png)
 
-# DELL XPS 15 9570 Ubuntu 18.04 Respin
+# DELL XPS 15 9570 Ubuntu 18.04 respin and post installation script (both 18.04 and 19.04)
 
 ### Table of Contents
 1. [Post-install script](#post-install-script)
@@ -126,6 +126,3 @@ sudo prime-select nvidia
 ## Troubleshooting
 
 Check the [wiki page](https://github.com/JackHack96/dell-xps-9570-ubuntu-respin/wiki/Troubleshooting) about it.
-
-
-# For Ubuntu 18.10, check this link: [https://www.reddit.com/r/Dell/comments/9puckt/ubuntu_1810_on_dell_xps_15_9570/](https://www.reddit.com/r/Dell/comments/9puckt/ubuntu_1810_on_dell_xps_15_9570/).
