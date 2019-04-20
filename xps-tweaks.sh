@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+release=$(lsb_release -c -s)
+
 # Check if the script is running under Ubuntu 18.04 Bionic Beaver
-if [ $(lsb_release -c -s) != "bionic" ]; then
-    >&2 echo "This script is made for Ubuntu 18.04!"
+if [ "$release" != "bionic" ] && [ "$release" != "disco" ]; then
+    >&2 echo "This script is made for Ubuntu 18.04/19.04!"
     exit 1
 fi
 
@@ -137,10 +139,12 @@ deferred-volume-safety-margin-usec = 1
     esac
 done
 
-# Enable LDAC, APTX, APTX-HD, AAC support in PulseAudio Bluetooth
-add-apt-repository ppa:eh5/pulseaudio-a2dp
-apt-get update
-apt-get install libavcodec-dev libldac pulseaudio-module-bluetooth
+# Enable LDAC, APTX, APTX-HD, AAC support in PulseAudio Bluetooth (for Ubuntu 18.04)
+if [ "$release" != "bionic" ]; then
+    add-apt-repository ppa:eh5/pulseaudio-a2dp
+    apt-get update
+    apt-get install libavcodec-dev libldac pulseaudio-module-bluetooth
+fi
 
 # Other packages
 apt -y install intel-microcode
@@ -150,10 +154,6 @@ rm -rf /lib/firmware/ath10k/QCA6174/hw3.0/*
 wget -O /lib/firmware/ath10k/QCA6174/hw3.0/board.bin https://github.com/kvalo/ath10k-firmware/blob/master/QCA6174/hw3.0/board.bin?raw=true
 wget -O /lib/firmware/ath10k/QCA6174/hw3.0/board-2.bin https://github.com/kvalo/ath10k-firmware/blob/master/QCA6174/hw3.0/board-2.bin?raw=true
 wget -O /lib/firmware/ath10k/QCA6174/hw3.0/firmware-4.bin https://github.com/kvalo/ath10k-firmware/blob/master/QCA6174/hw3.0/firmware-4.bin_WLAN.RM.2.0-00180-QCARMSWPZ-1?raw=true
-
-# Load and enable systemd units
-systemctl daemon-reload
-systemctl disable nvidia-fallback
 
 # Enable power saving tweaks for Intel chip
 if [[ $(uname -r) == *"4.15"* ]]; then
@@ -198,3 +198,12 @@ else
 fi
 
 echo "FINISHED! Please reboot the machine!"
+
+# Ask for disabling tracker
+echo "Do you wish to disable GNOME tracker (it uses a lot of power)?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) systemctl --user mask tracker-extract.desktop tracker-miner-apps.desktop tracker-miner-fs.desktop tracker-store.desktop; break;;
+        No ) break;;
+    esac
+done
