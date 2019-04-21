@@ -140,7 +140,7 @@ deferred-volume-safety-margin-usec = 1
 done
 
 # Enable LDAC, APTX, APTX-HD, AAC support in PulseAudio Bluetooth (for Ubuntu 18.04)
-if [ "$release" != "bionic" ]; then
+if [ "$release" == "bionic" ]; then
     add-apt-repository ppa:eh5/pulseaudio-a2dp
     apt-get update
     apt-get install libavcodec-dev libldac pulseaudio-module-bluetooth
