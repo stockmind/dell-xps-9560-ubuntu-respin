@@ -203,7 +203,7 @@ echo "FINISHED! Please reboot the machine!"
 echo "Do you wish to disable GNOME tracker (it uses a lot of power)?"
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) systemctl --user mask tracker-extract.desktop tracker-miner-apps.desktop tracker-miner-fs.desktop tracker-store.desktop; break;;
+        Yes ) systemctl mask tracker-extract.desktop tracker-miner-apps.desktop tracker-miner-fs.desktop tracker-store.desktop; break;;
         No ) break;;
     esac
 done
