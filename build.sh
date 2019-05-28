@@ -60,20 +60,20 @@ if [ -n "$COMPATIBILITY" ]; then
 		installpackages+="pciutils "
 		installpackages+="lsb-release "
 		# Nvidia
-		installpackages+="nvidia-driver-396 "
+		installpackages+="nvidia-driver-430 "
 		installpackages+="nvidia-prime "
 
 		GRUBOPTIONS="quiet splash acpi_rev_override=1 nouveau.modeset=0"
 	else
 		installpackages+="libva1 "
 		# Nvidia
-		installpackages+="nvidia-390 "
+		installpackages+="nvidia-430 "
 		installpackages+="nvidia-prime "
 	fi
 else
 	installpackages+="libva1 "
 	# Nvidia
-	installpackages+="nvidia-390 "
+	installpackages+="nvidia-430 "
 	installpackages+="nvidia-prime "
 fi
 
