@@ -4,6 +4,8 @@
 
 # DELL XPS 15 9560 Ubuntu Respin
 
+For the XPS 9570 see this fork: https://github.com/JackHack96/dell-xps-9570-ubuntu-respin
+
 # Overview
 
 Collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images to let them run smooth on Dell XPS 15 9560.
